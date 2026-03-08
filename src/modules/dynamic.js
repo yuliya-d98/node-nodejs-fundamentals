@@ -1,3 +1,4 @@
+import { pathToFileURL } from 'url';
 import { join } from 'path';
 
 const dynamic = async () => {
@@ -8,7 +9,7 @@ const dynamic = async () => {
   // Handle missing plugin case
 
 	const pluginName = process.argv[2];
-	const pluginPath = join(import.meta.dirname, "plugins", `${pluginName}.js`);
+	const pluginPath = pathToFileURL(join(import.meta.dirname, 'plugins', `${pluginName}.js`));
 
 	let plugin;
 	try {
